@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BD COMPACTUAL | Início</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #f4f8ff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        background-color: #1a237e;
+        color: white;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      header div {
+        display: flex;
+        flex-direction: column;
+      }
+
+      header h1 {
+        font-size: 24px;
+      }
+
+      header p {
+        font-size: 14px;
+      }
+
+      header img {
+        width: 50px;
+        height: 50px;
+      }
+
+      nav {
+        display: flex;
+        gap: 15px;
+        margin-top: 10px;
+      }
+
+      nav a {
+        background-color: transparent;
+        color: white;
+        border: 1px solid white;
+        border-radius: 5px;
+        padding: 6px 12px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+        text-decoration: none;
+      }
+
+      nav a:hover {
+        background-color: white;
+        color: #002366;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 3em auto;
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        text-align: center;
+      }
+
+      h2 {
+        color: #002366;
+        margin-bottom: 20px;
+      }
+
+      p {
+        color: #000000;
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+
+      .carousel {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        margin-bottom: 40px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+      }
+
+      .slides img {
+        flex: 0 0 100%;
+        height: auto;
+        object-fit: contain;
+        max-height: 450px;
+        user-select: none;
+      }
+
+      .carousel button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.4);
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .prev {
+        left: 10px;
+      }
+
+      .next {
+        right: 10px;
+      }
+
+      .sobre {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        margin-top: 40px;
+        text-align: left;
+        flex-wrap: wrap;
+      }
+
+      .sobre img {
+        width: 300px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .depoimentos {
+        margin-top: 60px;
+      }
+
+      .depoimentos h2 {
+        margin-bottom: 20px;
+      }
+
+      .depoimento {
+        background-color: #fffbe6;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        border-left: 4px solid #f5c400;
+      }
+
+      .depoimento img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #ccc;
+      }
+
+      .destaques {
+        margin-top: 60px;
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+        /* Adicionado para centralizar os blocos */
+        max-width: 1000px; /* Definir uma largura máxima para o bloco de destaques */
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .bloco {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Centraliza o conteúdo horizontalmente dentro do bloco */
+        gap: 40px;
+        flex-wrap: wrap;
+      }
+
+      .bloco img {
+        width: 400px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        flex-shrink: 0;
+        /* Adicionado para ajustar a posição vertical */
+        position: relative;
+      }
+
+      .bloco:nth-child(1) img {
+        top: -20px; /* Imagem um pouco para cima */
+      }
+
+      .bloco:nth-child(2) img {
+        top: 20px; /* Imagem um pouco para baixo */
+      }
+
+      .bloco:nth-child(3) img {
+        top: -10px; /* Imagem um pouco para cima */
+      }
+
+      .bloco .texto {
+        max-width: 500px;
+        text-align: left; /* Alinha o texto à esquerda */
+      }
+
+      .bloco h2 {
+        font-size: 24px;
+        color: #002366;
+        margin-bottom: 10px;
+      }
+
+      .bloco p {
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .bloco.inverso {
+        flex-direction: row-reverse;
+      }
+
+      footer {
+        margin-top: auto;
+        background-color: #002366;
+        padding: 20px;
+        text-align: center;
+        font-size: 14px;
+        color: white;
+      }
+
+      @media (max-width: 768px) {
+        .sobre,
+        .bloco,
+        .bloco.inverso {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .sobre img,
+        .bloco img {
+          width: 100%;
+          position: static; /* Remove o posicionamento relativo em telas menores */
+          transform: none; /* Remove a transformação em telas menores */
+        }
+
+        .bloco .texto {
+          max-width: 100%;
+        }
+
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        nav {
+          margin-top: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div style="margin-top: 0.5em">
+        <h1>BD COMPACTUAL</h1>
+        <p style="color: white">Sistema interno de cadastro de usuários</p>
+      </div>
+      <img
+        src="/static/bd-logo-removebg-preview.png"
+        alt="LOGO DA BD"
+        style="margin-left: 15px"
+      />
+      <nav>
+        <a href="form.html">Cadastro</a>
+        <a href="lista.html">Ver Lista</a>
+        <a href="home.html">Home</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h2>Bem-vindo ao BD COMPACTUAL</h2>
+      <p>
+        Nosso sistema foi desenvolvido para facilitar o cadastro, a organização
+        e a visualização de pessoas dentro da plataforma corporativa. Explore os
+        recursos!
+      </p>
+
+      <div class="carousel">
+        <div class="slides" id="slides">
+          <img src="/static/img1.jpg" alt="Slide 1" />
+          <img src="/static/img2.jpg" alt="Slide 2" />
+          <img src="/static/img3.jpg" alt="Slide 3" />
+        </div>
+        <button class="prev" onclick="mover(-1)">❮</button>
+        <button class="next" onclick="mover(1)">❯</button>
+      </div>
+
+      <section class="sobre">
+        <div>
+          <h2>Sobre a Empresa</h2>
+          <p>
+            Fundada em 2025, a BD COMPACTUAL nasceu com o propósito de tornar os
+            cadastros empresariais mais ágeis, seguros e intuitivos. Nossa
+            equipe é formada por desenvolvedores apaixonados por criar soluções
+            que realmente fazem diferença no dia a dia.
+          </p>
+        </div>
+        <img
+          src="/static/sobre.jpg"
+          alt="Sobre a Empresa"
+          style="margin: auto"
+        />
+      </section>
+
+      <section class="depoimentos">
+        <h2>O que estão dizendo</h2>
+
+        <div class="depoimento">
+          <img src="/static/pessoa1.jpg" alt="João Lima" />
+          <div>
+            <strong>João Lima</strong><br />
+            “Sistema leve e funcional. Me surpreendi com a rapidez na hora de
+            buscar cadastros.”
+          </div>
+        </div>
+
+        <div class="depoimento">
+          <img src="/static/pessoa2.jpg" alt="Marina Souza" />
+          <div>
+            <strong>Marina Souza</strong><br />
+            “Visual bonito, intuitivo e muito prático. Parece que foi feito sob
+            medida para a gente!”
+          </div>
+        </div>
+
+        <div class="depoimento">
+          <img src="/static/pessoa3.jpg" alt="Carlos Pinto" />
+          <div>
+            <strong>Carlos Pinto</strong><br />
+            “Achei que fosse mais um sisteminha qualquer, mas é realmente útil
+            no dia a dia.”
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="destaques">
+      <div class="bloco">
+        <div class="texto">
+          <h2>Gestão Eficiente</h2>
+          <p>
+            Otimize o tempo da sua equipe com ferramentas simples, rápidas e
+            seguras. Cada módulo do BD COMPACTUAL foi pensado para resolver
+            tarefas comuns com o menor número de cliques.
+          </p>
+        </div>
+        <img src="/static/eficiencia.jpg" alt="Gestão eficiente" />
+      </div>
+
+      <div class="bloco inverso">
+        <img src="/static/seguranca.jpg" alt="Segurança" />
+        <div class="texto">
+          <h2>Segurança em Primeiro Lugar</h2>
+          <p>
+            Utilizamos as melhores práticas de segurança para garantir que seus
+            dados estejam sempre protegidos. Privacidade e criptografia são
+            parte da base do nosso sistema.
+          </p>
+        </div>
+      </div>
+
+      <div class="bloco">
+        <div class="texto">
+          <h2>Interface Amigável</h2>
+          <p>
+            Não é preciso ser especialista para usar nosso sistema. Tudo foi
+            desenhado com foco na experiência do usuário, desde o primeiro
+            clique até os resultados.
+          </p>
+        </div>
+        <img src="/static/interface.jpg" alt="Interface amigável" />
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 BD COMPACTUAL. Todos os direitos reservados.</p>
+      <p>Programado por: Pedro Henriques</p>
+    </footer>
+
+    <script>
+      let index = 0;
+      function mover(direcao) {
+        const slides = document.getElementById("slides");
+        const totalSlides = slides.children.length;
+        index = (index + direcao + totalSlides) % totalSlides;
+        slides.style.transform = `translateX(-${index * 100}%)`;
+      }
+
+      setInterval(() => {
+        mover(1);
+      }, 5000);
+    </script>
+  </body>
+</html>

@@ -138,6 +138,16 @@
     <h1>Pessoas Cadastradas</h1>
 
     <div class="container">
+      <form method="get" action="/lista" style="margin-bottom: 20px">
+        <input
+          type="text"
+          name="busca"
+          placeholder="Buscar por nome..."
+          autocomplete="off"
+        />
+        <button type="submit">🔍</button>
+      </form>
+
       <ul>
         {% for p in pessoas %}
         <li>{{ p[1] }} - {{ p[2] }} - {{ p[3] }} anos</li>
