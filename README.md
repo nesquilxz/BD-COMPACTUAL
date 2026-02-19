@@ -8,7 +8,7 @@ The main goal of this project is to demonstrate fundamental concepts of backend 
 - Python
 - Flask
 - SQLite
-- HTML (Jinja2 templates)
+- HTML 
 
 ## Features
 - User registration via web form
